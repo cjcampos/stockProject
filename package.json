@@ -1,0 +1,16 @@
+{
+  "name": "stockproject",
+  "version": "1.0.0",
+  "description": "COMP 426 stock project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christian J Campos Ruiz",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.26.13",
+    "express": "^4.17.1",
+    "finnhub": "^1.2.1"
+  }
+}
