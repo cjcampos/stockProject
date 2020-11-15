@@ -17,9 +17,9 @@ const finnhubClient = new finnhub.DefaultApi()
 // serve files from the public directory
 app.use(express.static('public'));
 
-app.listen(8080, () => {
-    console.log('listening on 8080');
-});
+const portNumber = server.listen(process_env.PORT || 8080);
+
+app.listen(portNumber);
 
 // serve the homepage
 // sends the
