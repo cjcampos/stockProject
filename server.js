@@ -23,8 +23,8 @@ app.use(expressSession({
 // serve files from the public directory
 app.use(express.static('public'));
 
-// app.listen(process.env.PORT || 3000);
-app.listen(8080);
+app.listen(process.env.PORT || 3000);
+// app.listen(8080);
 
 // sends the homepage
 app.get('/', (req, res) => {
