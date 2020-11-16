@@ -29,9 +29,10 @@ async function hello(symbol) {
     console.log(responseJSON);
 }
 
-async function test(hello) {
+async function test() {
     const url = 'https://stockfinalproject.herokuapp.com/test';
-    const data = {username: hello};
+    const data = {username: "hello"};
+    console.log(JSON.stringify(data));
     let result = await fetch(url, {
         method: 'POST',
         headers: {
