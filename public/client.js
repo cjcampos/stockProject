@@ -29,11 +29,15 @@ async function hello(symbol) {
     console.log(responseJSON);
 }
 
-async function test(object) {
+async function test(hello) {
     const url = 'https://stockfinalproject.herokuapp.com/test';
+    const data = {username: hello};
     let result = await fetch(url, {
         method: 'POST',
-        body: JSON.stringify({try: object})
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
     });
     console.log(result.json);
 }
