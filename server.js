@@ -24,7 +24,7 @@ app.use(expressSession({
 app.use(express.static('public'));
 
 app.listen(process.env.PORT || 3000);
-//app.listen(8080);
+// app.listen(8080);
 
 // sends the homepage
 app.get('/', (req, res) => {
@@ -139,6 +139,6 @@ app.post('/delete', (req, res)=> {
 
 app.post('/test', (req, res)=> {
     console.log(req.body);
-    res.status(200).send("trueeee");
+    res.status(200).send(req.body);
     return;
 });
