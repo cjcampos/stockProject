@@ -139,6 +139,6 @@ app.post('/delete', (req, res)=> {
 
 app.post('/test', (req, res)=> {
     console.log(req.body);
-    res.status(200).send(req.body);
+    res.status(200).send("username: " + req.body.username);
     return;
 });
