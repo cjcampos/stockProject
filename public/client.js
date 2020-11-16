@@ -22,7 +22,7 @@ button.addEventListener('click', function(e) {
 });
 
 async function hello(symbol) {
-    const url = 'https://stockfinalproject.herokuapp.com/getStockInfo?symbol=' + symbol;
+    const url = 'https://stockfinalproject.herokuapp.com/getBasicStockInfo?symbol=' + symbol;
     console.log(url);
     let response = await fetch(url);
     let responseJSON = await response.json();
