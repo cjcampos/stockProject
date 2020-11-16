@@ -1,0 +1,22 @@
+{
+  "undefined": {
+    "password": "comp426",
+    "accountBalance": 6000,
+    "userStocks": {}
+  },
+  "kmp": {},
+  "kmp3": {
+    "password": "comp426",
+    "accountBalance": 0,
+    "userStocks": {
+      "AAPL": 1
+    }
+  },
+  "trial": {
+    "password": "trialTest",
+    "accountBalance": 5500,
+    "userStocks": {
+      "AAPL": 4
+    }
+  }
+}

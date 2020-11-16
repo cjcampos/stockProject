@@ -25,8 +25,25 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="fixed package.son">
+    <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="fix app listen">
+      <change afterPath="$PROJECT_DIR$/data/users.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/stockInformation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stocksOwned.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userProfiles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/read.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/read.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/types/json.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/types/json.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/types/raw.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/types/raw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/types/text.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/types/text.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/types/urlencoded.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/types/urlencoded.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/client.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +92,9 @@
       <workItem from="1604955667716" duration="8096000" />
       <workItem from="1605398170736" duration="418000" />
       <workItem from="1605398603868" duration="2527000" />
-      <workItem from="1605406661168" duration="2794000" />
+      <workItem from="1605406661168" duration="30399000" />
+      <workItem from="1605493279790" duration="11571000" />
+      <workItem from="1605540441000" duration="2157000" />
     </task>
     <task id="LOCAL-00001" summary="updated new">
       <created>1605407167352</created>
@@ -98,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605410789799</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix app listen">
+      <created>1605413067599</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605413067599</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,17 +152,19 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updated new" />
     <MESSAGE value="fixed package.son" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed package.son" />
+    <MESSAGE value="fix app listen" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix app listen" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605410794731">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605413074558">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605410794731" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605413074558" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605399649258">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
