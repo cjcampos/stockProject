@@ -25,20 +25,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="First Attempt">
-      <change afterPath="$PROJECT_DIR$/views/notfound.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="Second Attempt">
       <change beforePath="$PROJECT_DIR$/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/buyStocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/buyStocks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/portfolio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userProfiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/userProfiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/portfolio.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/portfolio.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/sign-in.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sign-in.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/sign-up.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sign-up.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/stockPage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/stockPage.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +96,7 @@
       <workItem from="1606093161629" duration="16000" />
       <workItem from="1606094149603" duration="9868000" />
       <workItem from="1606104706106" duration="7000" />
-      <workItem from="1606105254612" duration="16653000" />
+      <workItem from="1606105254612" duration="16707000" />
     </task>
     <task id="LOCAL-00001" summary="updated new">
       <created>1605407167352</created>
@@ -201,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606098064306</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Second Attempt">
+      <created>1606122295286</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606122295286</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,17 +232,18 @@
     <MESSAGE value="fix app listen" />
     <MESSAGE value="checking server" />
     <MESSAGE value="First Attempt" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Attempt" />
+    <MESSAGE value="Second Attempt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Second Attempt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="518" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606121842317">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="518" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1606121842317" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606098070674">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606122303769">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606098070674" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606122303769" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606097717629">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
