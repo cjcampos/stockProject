@@ -29,8 +29,8 @@ app.set('view engine', ejs);
 // serve files from the public directory
 app.use(express.static('public'));
 
-app.listen(process.env.PORT || 3000);
-// app.listen(8080);
+// app.listen(process.env.PORT || 3000);
+app.listen(8080);
 
 // sends the homepage
 app.get('/', (req, res) => {
@@ -361,7 +361,7 @@ app.post('/delete', (req, res)=> {
 
     UserProfiles.deleteAccount(req.session.user);
     delete req.session.user;
-    res.status(200).send("Successfully Deleted Account");
+    res.status(200);
     return;
 });
 

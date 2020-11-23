@@ -6,9 +6,22 @@ const accountBalance = document.getElementById('accountBalance');
 const portfolioBalance = document.getElementById('portfolioBalance');
 const message = document.getElementById('message');
 const portfolioAlert = document.getElementById('portfolioAlert');
+const deleteAccount = document.getElementById('deleteAccount');
 
 portfolioAlert.addEventListener("click", () => {
     portfolioAlert.style.display = 'none';
+});
+
+deleteAccount.addEventListener('click', async () => {
+    const result = await fetch('/delete', {
+        method: 'POST'
+    });
+    if (result.status === 200) {
+        window.location = '/';
+    } else {
+        message.innerHTML = "Error, could not delete your account";
+        portfolioAlert.style.display = 'block';
+    }
 });
 
 if (sellShares != null) {
