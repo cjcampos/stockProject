@@ -25,38 +25,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="checking server">
-      <change afterPath="$PROJECT_DIR$/public/buyStocks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/homepage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/portfolio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/stock-market-simulator-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/stock-market-simulator-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temporaryFolder/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temporaryFolder/portfolio.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temporaryFolder/sign-in.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temporaryFolder/sign-up.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/portfolio.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/sign-in.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/sign-up.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/stockPage.ejs" afterDir="false" />
+    <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="First Attempt">
+      <change afterPath="$PROJECT_DIR$/views/notfound.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/dist/async.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/dist/async.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/lib/async.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stockInformation.html" beforeDir="false" afterPath="$PROJECT_DIR$/temporaryFolder/stockInformation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/buyStocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/buyStocks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/portfolio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userProfiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/userProfiles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/portfolio.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/portfolio.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sign-in.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sign-in.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/sign-up.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sign-up.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/stockPage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/stockPage.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +106,9 @@
       <workItem from="1606059354180" duration="1511000" />
       <workItem from="1606060889276" duration="22589000" />
       <workItem from="1606093161629" duration="16000" />
-      <workItem from="1606094149603" duration="3888000" />
+      <workItem from="1606094149603" duration="9868000" />
+      <workItem from="1606104706106" duration="7000" />
+      <workItem from="1606105254612" duration="16653000" />
     </task>
     <task id="LOCAL-00001" summary="updated new">
       <created>1605407167352</created>
@@ -210,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605559343038</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="First Attempt">
+      <created>1606098064306</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1606098064306</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,21 +236,26 @@
     <MESSAGE value="fixed package.son" />
     <MESSAGE value="fix app listen" />
     <MESSAGE value="checking server" />
-    <option name="LAST_COMMIT_MESSAGE" value="checking server" />
+    <MESSAGE value="First Attempt" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Attempt" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605559346983">
+    <state x="518" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606121842317">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605559346983" />
+    <state x="518" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1606121842317" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606098070674">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606098070674" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606097717629">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1606097717629" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1606036821489">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1606117918142">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606036821489" />
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606117918142" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605657013769">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

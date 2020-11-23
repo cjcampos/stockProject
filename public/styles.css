@@ -1,3 +1,29 @@
+.alert-text {
+    z-index: 3 !important;
+    display: block;
+    background-color: #000000;
+    text-align: center;
+    font-size: large;
+    color: #FFFFFF;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    bottom: 0px;
+    opacity: 0.91;
+    height: 50px;
+    padding-top: 12px;
+    left: 0px;
+}
+
+
+
+label{
+    font-weight: bolder;
+    color: #2E79FF;
+}
+
+
 h1 {
     margin-bottom: 51px;
     font-size: 50px;
@@ -31,7 +57,6 @@ body {
     background-color: #FFFFFF;
     color: #000000;
     font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-style: normal;
     font-weight: normal;
 }
 
@@ -106,6 +131,7 @@ body {
     text-align: center;
     font-weight: normal;
     font-size: 56px;
+    margin-top: 8px;
 }
 
 #moreStockInformation {
@@ -119,6 +145,16 @@ body {
 
 .card {
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 1px;
+    border-color: #E5E5E5;
+}
+
+
+table, th, td, tr {
+    border: none;
+    border-style: none;
 }
 
 #desktop-searchCards {
@@ -128,7 +164,7 @@ body {
 
 .bg-light {
     background-color: #FFFFFF !important;
-    border-bottom: 8px solid #F0F0F0;
+    border-bottom: 5px solid #F0F0F0;
     padding-top: 0px;
 }
 .portfolioheader {
@@ -139,10 +175,23 @@ body {
 
 .btn {
     background-color: #2E79FF;
-    font-size: 31.5px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 7px;
+    padding-left: 7px;
 }
 
+.logo-img {
+    max-height: 46px;
+    width: auto;
+    height: auto;
+}
 .btn:hover {
     background-color: #00328B;
 }
@@ -190,16 +239,23 @@ body {
 .autocompleteItems div {
     background-color: #FFFFFF;
     width: 100%;
-    color: #000000;
+    color: #2E79FF;
     padding-left: 15px;
     padding-right: 15px;
-    border: 1px solid #000000;
-    border-radius: 5px;
+    border: 1px solid #F0F0F0;
+    border-radius: 3px;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-size: large;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .searchBar {
     padding-left: 0px;
     padding-right: 0px;
+    padding-bottom: 1px;
 }
 .hero {
     margin-top: 50px;
@@ -216,4 +272,12 @@ body {
     width: 100%;
     text-shadow: 0px 0px;
     background-position: 50% 0;
+}
+
+.searchBarActive {
+    background-color: #D3D3D3 !important;
+}
+
+#portfolioAlert {
+    display: none;
 }

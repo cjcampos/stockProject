@@ -18,17 +18,20 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light menu">
         <div class="row menuComponents">
             <div class="col-2 logo"><a class="headerLink" href="/"><img src="stock-market-simulator-01.png" width="100%"/></a></div>
-            <div class="col-4"><input class="form-control" type="text" placeholder="Search" id="searchBox"></div>
+            <div class="col-4"><input class="form-control" autocomplete="off" type="text" placeholder="Search" id="searchBox"></div>
             <div class="col-2 my-portfolio"><a class="headerLink" href="/myPortfolio">Portfolio</a></div>
             <div class="col-3 sign-in"><a class="headerLink" href="/<%= accountLink %>">Sign in</a></div>
         </div>
     </nav>
 </header>
 <div class="container">
+    <% if (message != '') { %>
+        <div class="alert-text" ><p>Invalid User Name or Password</p></div>
+    <% } %>
     <form action="/login" method="post">
         <div class="form-group">
             <label for="user">User Name</label>
-            <input type="text" autocomplete="off" class="form-control" id="inputUserName" name="user">
+            <input type="text" autocomplete="off" class="form-control" id="inputUserName" placeholder="User Name" name="user" value="<%= currentUserName %>">
         </div>
         <div class="form-group">
             <label for="password">Password</label>

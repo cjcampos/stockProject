@@ -25,10 +25,13 @@
     </nav>
 </header>
 <div class="container">
+    <% if (message != '') { %>
+        <div class="alert-text" ><p>Invalid Parameters</p></div>
+    <% } %>
     <form action="/signUp" method="post">
         <div class="form-group">
             <label for="user">User Name</label>
-            <input type="text" autocomplete="off" class="form-control" id="user" name="user" placeholder="KMP">
+            <input type="text" autocomplete="off" class="form-control" id="user" name="user" placeholder="KMP" value="<%= currentUserName %>">
         </div>
         <div class="form-group">
             <label for="password">Password</label>

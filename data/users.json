@@ -13,8 +13,10 @@
   },
   "test": {
     "password": "test",
-    "accountBalance": 1240.222000000001,
-    "userStocks": {}
+    "accountBalance": 600.182000000001,
+    "userStocks": {
+      "AAPL": 6
+    }
   },
   "chaca": {
     "password": "chaca",
@@ -23,14 +25,237 @@
   },
   "hello": {
     "password": "hello",
-    "accountBalance": 882.66,
-    "userStocks": {
-      "AAPL": 1
-    }
+    "accountBalance": 1014,
+    "userStocks": {}
   },
   "kmp": {
     "password": "kmp",
     "accountBalance": 10,
+    "userStocks": {}
+  },
+  "kmp2": {
+    "password": "kmp2",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "kmp3": {
+    "password": "kmp3",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "kmp4": {
+    "password": "kmp4",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "kmp5": {
+    "password": "kmp5",
+    "accountBalance": 100.01,
+    "userStocks": {}
+  },
+  "kmp7": {
+    "password": "kmp7",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "kmp6": {
+    "password": "kmp6",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "kmp8": {
+    "password": "kmp8",
+    "accountBalance": null,
+    "userStocks": {}
+  },
+  "kmp9": {
+    "password": "kmp9",
+    "accountBalance": 1000,
+    "userStocks": {}
+  },
+  "giselle": {
+    "password": "Giselle",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "monkey": {
+    "password": "monkey",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "monkey2": {
+    "password": "monkey2",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "monkey3": {
+    "password": "monkey3",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "monkey4": {
+    "password": "monkey4",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "monkey6": {
+    "password": "monkey6",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "monkey7": {
+    "password": "monkey7",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "monkey8": {
+    "password": "monkey8",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "a": {
+    "password": "a",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "b": {
+    "password": "b",
+    "accountBalance": 2,
+    "userStocks": {}
+  },
+  "c": {
+    "password": "c",
+    "accountBalance": 3,
+    "userStocks": {}
+  },
+  "d": {
+    "password": "d",
+    "accountBalance": 5,
+    "userStocks": {}
+  },
+  "e": {
+    "password": "e",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "f": {
+    "password": "f",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "g": {
+    "password": "g",
+    "accountBalance": 10,
+    "userStocks": {}
+  },
+  "j": {
+    "password": "j",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "k": {
+    "password": "k",
+    "accountBalance": 10,
+    "userStocks": {}
+  },
+  "l": {
+    "password": "l",
+    "accountBalance": 10,
+    "userStocks": {}
+  },
+  "lm": {
+    "password": "lm",
+    "accountBalance": 10,
+    "userStocks": {}
+  },
+  "nm": {
+    "password": "nm",
+    "accountBalance": 10,
+    "userStocks": {}
+  },
+  "lk": {
+    "password": "lk",
+    "accountBalance": 10,
+    "userStocks": {}
+  },
+  "lo": {
+    "password": "lo",
+    "accountBalance": 41,
+    "userStocks": {}
+  },
+  "p": {
+    "password": "p",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "o": {
+    "password": "o",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "u": {
+    "password": "u",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "y": {
+    "password": "y",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "t": {
+    "password": "t",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "campos2": {
+    "password": "Campos2",
+    "accountBalance": 1000,
+    "userStocks": {}
+  },
+  "q": {
+    "password": "q",
+    "accountBalance": 1,
+    "userStocks": {}
+  },
+  "gigi": {
+    "password": "gigi",
+    "accountBalance": 1000,
+    "userStocks": {}
+  },
+  "mama": {
+    "password": "mama",
+    "accountBalance": 200,
+    "userStocks": {}
+  },
+  "": {
+    "password": "",
+    "accountBalance": 6,
+    "userStocks": {}
+  },
+  "bye": {
+    "password": "bye",
+    "accountBalance": 10,
+    "userStocks": {}
+  },
+  "bye2": {
+    "password": "bye2",
+    "accountBalance": 12,
+    "userStocks": {}
+  },
+  "bye3": {
+    "password": "bye3",
+    "accountBalance": 12,
+    "userStocks": {}
+  },
+  "kmp55": {
+    "password": "kmp55",
+    "accountBalance": 12,
+    "userStocks": {}
+  },
+  "lol": {
+    "password": "lol",
+    "accountBalance": 15,
     "userStocks": {}
   }
 }

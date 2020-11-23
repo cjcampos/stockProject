@@ -60,7 +60,10 @@ app.get('/signIn', (req, res) => {
             accountStatus: 'Sign In',
             accountID: 'signIn',
             accountLink: 'signIn',
-            portfolioLink: 'signIn'
+            portfolioLink: 'signIn',
+            message: '',
+            currentUserName: ''
+
         }
         res.render("sign-in.ejs", userStatus);
     } else {
@@ -68,7 +71,9 @@ app.get('/signIn', (req, res) => {
             accountStatus: 'Sign Out',
             accountID: 'signOut',
             accountLink: 'logout',
-            portfolioLink: 'myPortfolio'
+            portfolioLink: 'myPortfolio',
+            message: '',
+            currentUserName: ''
         }
         res.render("sign-in.ejs", userStatus);
     }
@@ -120,7 +125,8 @@ app.get('/stocks', (req, res) => {
 
                 res.render("stockPage.ejs", allStockData);
             } else {
-                res.status(404).send("Not Found");
+                res.status(404);
+                res.render("notfound.ejs");
             }
         });
     });
@@ -133,7 +139,9 @@ app.get('/signUp', (req, res) => {
             accountStatus: 'Sign In',
             accountID: 'signIn',
             accountLink: 'signIn',
-            portfolioLink: 'signIn'
+            portfolioLink: 'signIn',
+            message: '',
+            currentUserName: ''
         }
         res.render("sign-up.ejs", userStatus);
     } else {
@@ -141,7 +149,9 @@ app.get('/signUp', (req, res) => {
             accountStatus: 'Sign Out',
             accountID: 'signOut',
             accountLink: 'logout',
-            portfolioLink: 'myPortfolio'
+            portfolioLink: 'myPortfolio',
+            message: '',
+            currentUserName: ''
         }
         res.render("sign-up.ejs", userStatus);
     }
@@ -213,27 +223,40 @@ app.get('/getStockSymbols', (req, res) => {
 
 const UserProfiles = require("./userProfiles.js");
 
-const loginData = require('data-store')({ path: process.cwd() + '/data/users.json' });
-
 app.post('/login', (req,res) => {
     let user = req.body.user;
     let password = req.body.password;
 
-    let userData = loginData.get(user.toLowerCase());
+    let userData = UserProfiles.get(user.toLowerCase(), password);
 
-    if (userData == null) {
-        res.status(404).send("Not found");
-        return;
+    if (!userData) {
+        if (req.session.user === undefined) {
+            const userStatus = {
+                accountStatus: 'Sign In',
+                accountID: 'signIn',
+                accountLink: 'signIn',
+                portfolioLink: 'signIn',
+                message: '<div class="alert-text" ><p>Invalid Parameters</p></div>',
+                currentUserName: req.body.user
+            }
+            res.render("sign-in.ejs", userStatus);
+        } else {
+            const userStatus = {
+                accountStatus: 'Sign Out',
+                accountID: 'signOut',
+                accountLink: 'logout',
+                portfolioLink: 'myPortfolio',
+                message: '',
+                currentUserName: '',
+                message: '<div class="alert-text" ><p>Invalid Parameters</p></div>',
+                currentUserName: req.body.user
+            }
+            res.render("sign-in.ejs", userStatus);
+        }
     }
 
-    if (userData.password == password) {
+    if (userData) {
         req.session.user = user.toLowerCase();
-        const userStatus = {
-            accountStatus: 'Sign Out',
-            accountID: 'signOut',
-            accountLink: 'logout',
-            portfolioLink: 'myPortfolio'
-        }
         return res.redirect('/');
     }
 });
@@ -246,21 +269,50 @@ app.get('/logout', (req, res) => {
         accountLink: 'signIn',
         portfolioLink: 'signIn'
     }
-    res.render("index.ejs", userStatus);
+
+    res.redirect('/');
 });
 
 app.post('/signUp', (req, res)=> {
     let s = UserProfiles.create(req.body.user, req.body.password, req.body.accountBalance);
-    if (s == null) {
-        res.status(400).send("Bad Request");
-        return;
+
+    if (s === null) {
+        if (req.session.user == undefined) {
+            const userStatus = {
+                accountStatus: 'Sign In',
+                accountID: 'signIn',
+                accountLink: 'signIn',
+                portfolioLink: 'signIn',
+                message: '<div class="alert-text" ><p>Invalid Parameters</p></div>',
+                currentUserName: req.body.user
+            }
+            res.render("sign-up.ejs", userStatus);
+        } else {
+            const userStatus = {
+                accountStatus: 'Sign Out',
+                accountID: 'signOut',
+                accountLink: 'logout',
+                portfolioLink: 'myPortfolio',
+                message: '',
+                currentUserName: '',
+                message: '<div class="alert-text" ><p>Invalid Parameters</p></div>',
+                currentUserName: req.body.user
+            }
+            res.render("sign-up.ejs", userStatus);
+        }
     }
-    return res.json(s);
+
+    res.redirect('/signIn');
 });
 
 app.post('/addFunds', (req, res)=> {
     if (req.session.user == undefined) {
         res.status(403).send("Unauthorized");
+        return;
+    }
+
+    if (req.body.fundsToAdd <= 0) {
+        res.status(400).send("Invalid sum of funds");
         return;
     }
 
@@ -292,7 +344,7 @@ app.post('/sellStock', (req, res)=> {
     }
 
     if (!(UserProfiles.hasStock(req.session.user, req.body.stockSymbol, req.body.shares))) {
-        res.status(400).send("Does Not Have Stock or Enough Shares");
+        res.status(400).send("Do Not Have Stock or Enough Shares");
         return;
     }
 
@@ -323,5 +375,6 @@ app.get('/userInfo', (req, res) => {
 });
 
 app.get('*', function(req, res){
-    res.status(404).send("Not Found");
+    res.status(404);
+    res.render("notFound.ejs");
 });
