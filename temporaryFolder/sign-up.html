@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="public/styles.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+        <div class="row menuComponents">
+            <div class="col-4 logo"><a class="headerLink" href="public/index.html">Stocks Name</a></div>
+            <div class="col-4"><input class="form-control" type="text" placeholder="Search"></div>
+            <div class="col-2 sign-in"><a class="headerLink" href="temp/sign-up.html">Sign in</a></div>
+            <div class="col-2 my-portfolio"><a class="headerLink" href="my-cart.html">Portfolio</a></div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <form action="/signUp" method="post">
+        <div class="form-group">
+            <label for="user">User Name</label>
+            <input type="text" class="form-control" id="user" name="user" placeholder="KMP">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+        </div>
+        <div class="form-group">
+            <label for="accountBalance">Starting Amount</label>
+            <input type="text" class="form-control" id="accountBalance" placeholder="$100.0" name="accountBalance">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign up</button>
+    </form>
+    <div class="alert alert-secondary" role="alert">
+        <a href="#" class="alert-link">Create Account</a>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="signUp.js"></script>
+</body>
+
+</html>

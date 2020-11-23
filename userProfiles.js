@@ -13,17 +13,24 @@ userProfiles.getAllUserStocksForOwner = (owner) => {
 }
 
 userProfiles.create = (owner, password, accountBalance) => {
-    if (!Object.keys(users.data).includes(owner)) {
-        let account = new userProfiles(password, accountBalance);
-        users.set(owner, account);
+    if (!Object.keys(users.data).includes(owner.toLowerCase())) {
+        let accountBalanceCast = parseFloat(accountBalance);
+        let ownerCast = owner.toLowerCase();
+        let account = new userProfiles(password, accountBalanceCast);
+        users.set(ownerCast, account);
         return account;
     }
     return null;
 }
 
+userProfiles.getFunds = (owner) => {
+    const userProfile = users.get(owner);
+    return userProfile.accountBalance;
+}
+
 userProfiles.updateAddFunds = (owner, fundsToAdd) => {
     const userProfile = users.get(owner);
-    userProfile.accountBalance += fundsToAdd;
+    userProfile.accountBalance += parseFloat(fundsToAdd);
     users.set(owner, userProfile);
 }
 
@@ -37,10 +44,10 @@ userProfiles.buyStock = (owner, stockSymbol, shares, costPerShare) => {
     if (userProfile.accountBalance >= (shares * costPerShare)) {
         userProfile.accountBalance -= (shares * costPerShare);
         if (userProfile.userStocks[stockSymbol] != undefined) {
-            userProfile.userStocks[stockSymbol] = shares + userProfile.userStocks[stockSymbol];
+            userProfile.userStocks[stockSymbol] = parseInt(shares) + parseInt(userProfile.userStocks[stockSymbol]);
             users.set(owner, userProfile);
         } else {
-            userProfile.userStocks[stockSymbol] = shares;
+            userProfile.userStocks[stockSymbol] = parseInt(shares);
             users.set(owner, userProfile);
         }
     }
@@ -59,11 +66,26 @@ userProfiles.sellStock = (owner, stockSymbol, shares, costPerShare) => {
     const userProfile = users.get(owner);
     userProfile.accountBalance += (shares * costPerShare);
     userProfile.userStocks[stockSymbol] = userProfile.userStocks[stockSymbol] - shares;
+    if (userProfile.userStocks[stockSymbol] === 0) {
+        delete userProfile.userStocks[stockSymbol];
+    }
     users.set(owner, userProfile);
 }
 
 userProfiles.deleteAccount = (owner) => {
     users.del(owner);
+}
+
+userProfiles.getAllStocks = (owner) => {
+    const userProfile = users.get(owner);
+    let stocksOwned = userProfile.userStocks;
+    let stockSymbols = [];
+    for (let stock in stocksOwned) {
+        let symbol = stock;
+        let shares = stocksOwned[stock];
+        stockSymbols.push([symbol, shares]);
+    }
+    return stockSymbols;
 }
 
 module.exports = userProfiles;

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>My Portfolio</title>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+        <div class="row menuComponents">
+            <div class="col-2 logo"><a class="headerLink" href="/"><img src="stock-market-simulator-01.png" width="100%"/></a></div>
+            <div class="col-4"><input class="form-control" autocomplete="off" type="text" id="searchBox" placeholder="Search for Stock Symbol"></div>
+            <div class="col-3 my-portfolio"><a class="headerLink" href="/myPortfolio">Portfolio</a></div>
+            <div class="col-2 sign-in"><a class="headerLink" href="/signIn" id="<%= accountID %>"><%= accountStatus %></a></div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <div class="card">
+        <div id="stockInformation" class="card-body portfolioheader">
+            <h1 id="stockTitle" class="card-title">Portfolio</h1>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>My Balance&nbsp;</td>
+                    <td><strong id="accountBalance">$<%= accountBalance %></strong></td>
+                    <td>Value of Portfolio</td>
+                    <td><strong id="portfolioBalance">$<%= portfolio %></strong></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#funds">
+            Add Funds
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="funds" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Funds</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-8">
+                                    <p>Funds to Add</p>
+                                </div>
+                                <div class="col-4">
+                                    <input autocomplete="off" type="text" class="form-control" placeholder="$300" id="addFundsField">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="addFunds">Add To Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% stocks.forEach(function (stock) { %>
+        <div class="card" id="allDiv<%= stock.stockName %>">
+            <div class="card-body">
+                <h1 id="stockTitle" class="card-title"><%= stock.stockName %></h1>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>Current Value Per Share</td>
+                        <td><strong>$<%= stock.currentValue %></strong></td>
+                        <td>Number of Shares Owned</td>
+                        <td id="numSharesOwned<%= stock.stockName %>"><strong><%= stock.shares %></strong></td>
+                    </tr>
+                    <tr>
+                        <td>Current Value of All Shares</td>
+                        <td><strong id="totalValueOfShares<%= stock.stockName %>">$<%= stock.totalValueOfShares %></strong></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a href="/stocks?symbol=<%= stock.stockName %>" class="btn btn-dark">View Stock</a>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal<%= stock.stockName %>">
+                Sell Shares
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal<%= stock.stockName %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" id="hi">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle"><%= stock.stockName %></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="col-8">
+                                        <p>Number of shares</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <input autocomplete="off" type="text" class="form-control numShares" value="1" id="<%= stock.stockName %>">
+                                    </div>
+                                    <div class="col-8">
+                                        <p>Sell Price per Share</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p id="costPerShare<%= stock.stockName %>">$<%= stock.currentValue %></p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p>Total Selling Price</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p id="totalCost<%= stock.stockName %>">$<%= stock.currentValue %></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary sell" data-dismiss="modal" id="sell<%= stock.stockName %>">Sell</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    <% }); %>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="portfolio.js"></script>
+<script src="header.js"></script>
+</body>
+
+</html>

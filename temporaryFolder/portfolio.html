@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script>
+        let clickedOnce = true;
+
+        function changeStyle() {
+            if (clickedOnce) {
+                document.getElementById('moreStockInformation').style.display = 'block';
+                clickedOnce = false;
+            } else {
+                document.getElementById('moreStockInformation').style.display = 'none';
+                clickedOnce = true;
+            }
+        }
+
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="public/styles.css">
+    <title>Stock Draft 1</title>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light menu">
+        <div class="row menuComponents">
+            <div class="col-4 logo"><a href="public/index.html">Stocks Name</a></div>
+            <div class="col-4"><input class="form-control" type="text" placeholder="Search"></div>
+            <div class="col-2 sign-in"><a href="public/sign-up.html">Sign in</a></div>
+            <div class="col-2 my-portfolio"><a href="my-cart.html">Portfolio</a></div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <div class="card">
+        <div id="stockInformation" class="card-body">
+            <h5 id="stockTitle" class="card-title">Portfolio</h5>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>Money on Account</td>
+                    <td>$200.00</td>
+                    <td>Value of Portfolio</td>
+                    <td>$1,000.31</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" class="btn btn-dark">ADD FUNDS</button>
+    </div>
+    <div class="card">
+        <div id="stockInformation" class="card-body">
+            <h5 id="stockTitle" class="card-title">Sample Stock</h5>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>Current Price</td>
+                    <td>$251.74</td>
+                    <td>Price Bought</td>
+                    <td>$263.31</td>
+                </tr>
+                <tr>
+                    <td>Number of Shares Owned</td>
+                    <td>4</td>
+                    <td>Current Price of Shares</td>
+                    <td>$1,053.24</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" class="btn btn-dark">VIEW STOCK</button>
+        <button type="button" class="btn btn-dark">SELL</button>
+    </div>
+    <div class="card">
+        <div id="stockInformation" class="card-body">
+            <h5 id="stockTitle" class="card-title">Sample Stock</h5>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>Current Price</td>
+                    <td>$251.74</td>
+                    <td>Price Bought</td>
+                    <td>$263.31</td>
+                </tr>
+                <tr>
+                    <td>Number of Shares Owned</td>
+                    <td>4</td>
+                    <td>Current Price of Shares</td>
+                    <td>$1,053.24</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" class="btn btn-dark">VIEW STOCK</button>
+        <button type="button" class="btn btn-dark">SELL</button>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

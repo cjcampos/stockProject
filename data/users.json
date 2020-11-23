@@ -1,22 +1,36 @@
 {
-  "undefined": {
-    "password": "comp426",
-    "accountBalance": 6000,
-    "userStocks": {}
-  },
-  "kmp": {},
-  "kmp3": {
-    "password": "comp426",
-    "accountBalance": 0,
+  "hello3": {
+    "password": "password",
+    "accountBalance": 67.66,
     "userStocks": {
       "AAPL": 1
     }
   },
-  "trial": {
-    "password": "trialTest",
-    "accountBalance": 5500,
+  "alvaro": {
+    "password": "alvaro",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "test": {
+    "password": "test",
+    "accountBalance": 1240.222000000001,
+    "userStocks": {}
+  },
+  "chaca": {
+    "password": "chaca",
+    "accountBalance": 100,
+    "userStocks": {}
+  },
+  "hello": {
+    "password": "hello",
+    "accountBalance": 882.66,
     "userStocks": {
-      "AAPL": 4
+      "AAPL": 1
     }
+  },
+  "kmp": {
+    "password": "kmp",
+    "accountBalance": 10,
+    "userStocks": {}
   }
 }

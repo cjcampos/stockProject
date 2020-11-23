@@ -26,8 +26,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="checking server">
+      <change afterPath="$PROJECT_DIR$/public/buyStocks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/homepage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/portfolio.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/stock-market-simulator-01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/stock-market-simulator-02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temporaryFolder/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temporaryFolder/portfolio.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temporaryFolder/sign-in.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temporaryFolder/sign-up.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/portfolio.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/sign-in.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/sign-up.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/stockPage.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/async/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/async/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/async/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/dist/async.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/dist/async.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/async/lib/async.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/async/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stockInformation.html" beforeDir="false" afterPath="$PROJECT_DIR$/temporaryFolder/stockInformation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userProfiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/userProfiles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +66,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
@@ -54,12 +84,15 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\cjcampos\Desktop\COMP 426\stockProjectUpdate\public" />
+      <recent name="C:\Users\cjcampos\Desktop\COMP 426\stockProjectUpdate\temp" />
+      <recent name="C:\Users\cjcampos\Desktop\COMP 426\stockProjectUpdate\views" />
       <recent name="C:\Users\cjcampos\Desktop\COMP 426\stockProjectUpdate" />
       <recent name="C:\Users\cjcampos\Desktop\COMP 426\stockProject\public" />
     </key>
@@ -77,7 +110,21 @@
       <workItem from="1605398603868" duration="2527000" />
       <workItem from="1605406661168" duration="30399000" />
       <workItem from="1605493279790" duration="11571000" />
-      <workItem from="1605540441000" duration="6315000" />
+      <workItem from="1605540441000" duration="28154000" />
+      <workItem from="1605622734146" duration="26338000" />
+      <workItem from="1605667219779" duration="608000" />
+      <workItem from="1605679686316" duration="256000" />
+      <workItem from="1605722134981" duration="8084000" />
+      <workItem from="1605838178615" duration="350000" />
+      <workItem from="1605838551793" duration="14729000" />
+      <workItem from="1605907488563" duration="8513000" />
+      <workItem from="1605918033802" duration="12029000" />
+      <workItem from="1605989858159" duration="31602000" />
+      <workItem from="1606035222875" duration="2316000" />
+      <workItem from="1606059354180" duration="1511000" />
+      <workItem from="1606060889276" duration="22589000" />
+      <workItem from="1606093161629" duration="16000" />
+      <workItem from="1606094149603" duration="3888000" />
     </task>
     <task id="LOCAL-00001" summary="updated new">
       <created>1605407167352</created>
@@ -156,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605559225113</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="checking server">
+      <created>1605559343038</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1605559343038</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,13 +248,21 @@
     <option name="LAST_COMMIT_MESSAGE" value="checking server" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605559230191">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1605559346983">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605559230191" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605399649258">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1605559346983" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606097717629">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1605399649258" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1606097717629" />
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1606036821489">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606036821489" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605657013769">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1605657013769" />
   </component>
 </project>

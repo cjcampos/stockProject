@@ -1,0 +1,219 @@
+h1 {
+    margin-bottom: 51px;
+    font-size: 50px;
+    color: #2E79FF;
+}
+h2 {
+    margin-bottom: 51px;
+    font-size: 40px;
+    color: #000;
+}
+
+h3 {
+    margin-bottom: 51px;
+    font-size: 30px;
+    color: #000;
+}
+
+h4 {
+    margin-bottom: 51px;
+    font-size: 30px;
+    color: #000;
+}
+
+
+h6 {
+    font-size: large;
+    font-weight: normal;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.cubebox{
+    background-color: #2E79FF;
+    margin-left: 0%;
+    display: block;
+    color: #FFFFFF;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.cubecontainer
+{
+    clear: left;
+    min-width: 500px;
+    display: block;
+    padding-left: 25%;
+}
+.cube{
+    font-weight: normal;
+    font-size: x-large;
+    text-align: center;
+    border: thick solid #FFFFFF;
+    border-radius: 17px;
+    border-collapse: collapse;
+    -webkit-box-shadow: 0 4px 0px #FFFFFF;
+    box-shadow: 0 4px 0px #FFFFFF;
+}
+.menu {
+    height: 132px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+.logo {
+    text-align: center;
+    font-size: xx-large;
+    height: auto;
+    padding-top: 0px;
+    color: #000000;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.sign-in {
+    text-align: right;
+    font-size: large;
+}
+
+.my-portfolio {
+    text-align: right;
+    font-size: large;
+}
+
+.menuComponents {
+    width: 100%;
+    align-items: center;
+    color: #000000;
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+#stockTitle {
+    text-align: center;
+    font-weight: normal;
+    font-size: 56px;
+}
+
+#moreStockInformation {
+    display: none;
+}
+
+#card-columns {
+    width: 25%;
+    column-count: 1;
+}
+
+.card {
+    width: 100%;
+}
+
+#desktop-searchCards {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.bg-light {
+    background-color: #FFFFFF !important;
+    border-bottom: 8px solid #F0F0F0;
+    padding-top: 0px;
+}
+.portfolioheader {
+    background-color: #E0E0E0;
+    font-size: xx-large;
+}
+
+
+.btn {
+    background-color: #2E79FF;
+    font-size: 31.5px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #00328B;
+}
+
+.btn:active {
+    color: #8eaadb;
+    background-color: #00266C;
+}
+
+.headerLink {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.headerLink:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+#main {
+    background-color: #FFFFFF;
+}
+
+#mainTitle {
+    text-align: center;
+}
+.mainTitle3 {
+    color: #FFFFFF;
+    font-size: 100px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.autocompleteBox {
+    position: relative;
+}
+
+.autocompleteItems {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    top: 100%;
+}
+
+.autocompleteItems div {
+    background-color: #FFFFFF;
+    width: 100%;
+    color: #000000;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.searchBar {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.hero {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.portfolioheader {
+}
+.btn-2 {
+}
+.hero-slider {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    width: 100%;
+    text-shadow: 0px 0px;
+    background-position: 50% 0;
+}
