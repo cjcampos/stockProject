@@ -78,7 +78,7 @@ if (buyShares !== null) {
                 });
             }
         } else {
-            messageBox.innerHTML = "Error, invalid sum of funds";
+            messageBox.innerHTML = "Error, invalid number of stocks";
             buyStocksAlert.style.display = 'block';
         }
     });

@@ -63,21 +63,24 @@ if (sellShares !== null) {
         const field = document.getElementById('field' + id);
         const currentSharesOwned = document.getElementById('numSharesOwned' + id);
         const currentChangeInStockValue = document.getElementById('changeOverTime' + id);
+        const currentValuePerShare = document.getElementById('currentValuePerShare' + id);
 
         await fetch('/sellStock', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({stockSymbol: id, shares: field.value, costPerShare: parseFloat(((costPerShare.textContent).substring(1)).replace(/,/g, ""))})
+            body: JSON.stringify({stockSymbol: id, shares: field.value})
         }).then((response) => {
             if (response.status === 200) {
                 field.value = 1;
                 response.json().then(message => {
+                    const valueForAllShares = ((totalCost.textContent).substring(1)).replace(/,/g, "");
                     costPerShare.innerHTML = currencyFormatter.format(message['currentStockValue']);
+                    currentValuePerShare.innerHTML = currencyFormatter.format(message['currentStockValue']);
                     currentSharesOwned.innerHTML = ((message['viewElements'])['numOfStocks']);
                     currentChangeInStockValue.innerHTML = message['currentChangeInStockValue'] + "%";
-                    currentPortfolioBalance = currentPortfolioBalance - (message['viewElements'])['changeInBalance'];
+                    currentPortfolioBalance = currentPortfolioBalance - valueForAllShares + (message['viewElements'])['valueForAllShares'];
                     portfolioBalance.innerHTML = currencyFormatter.format(currentPortfolioBalance);
                     messageBox.innerHTML = message['message'];
                     profitLoss.innerHTML = currencyFormatter.format(((message['viewElements'])['accountBalance']) + currentPortfolioBalance - ((message['viewElements'])['totalFundsAdded']));

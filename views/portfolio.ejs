@@ -129,7 +129,7 @@
                     <tbody>
                     <tr>
                         <td>Current Value Per Share</td>
-                        <td><strong><%= currencyFormatter.format(stock.currentValue) %></strong></td>
+                        <td><strong id="currentValuePerShare<%= stock.stockName %>"><%= currencyFormatter.format(stock.currentValue) %></strong></td>
                         <td>Number of Shares Owned</td>
                         <td><strong id="numSharesOwned<%= stock.stockName %>"><%= stock.shares %></strong></td>
                     </tr>
@@ -172,13 +172,13 @@
                                         <p>Sell Price per Share</p>
                                     </div>
                                     <div class="col-4">
-                                        <p id="costPerShare<%= stock.stockName %>">$<%= stock.currentValue %></p>
+                                        <p id="costPerShare<%= stock.stockName %>"><%= currencyFormatter.format(stock.currentValue) %></p>
                                     </div>
                                     <div class="col-8">
                                         <p>Total Selling Price</p>
                                     </div>
                                     <div class="col-4">
-                                        <p id="totalCost<%= stock.stockName %>">$<%= stock.currentValue %></p>
+                                        <p id="totalCost<%= stock.stockName %>"><%= currencyFormatter.format(stock.currentValue) %></p>
                                     </div>
                                 </div>
                             </form>

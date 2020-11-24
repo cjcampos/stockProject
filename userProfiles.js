@@ -94,10 +94,10 @@ userProfiles.sellStock = (owner, stockSymbol, shares, costPerShare) => {
     if (userProfile.userStocks[stockSymbol] === 0) {
         delete userProfile.userStocks[stockSymbol];
         users.set(owner, userProfile);
-        return { numOfStocks: 0, accountBalance: userProfile.accountBalance, changeInBalance: (shares * costPerShare), valueForAllShares: 0, totalFundsAdded: userProfile.totalFundsAdded };
+        return { numOfStocks: 0, accountBalance: userProfile.accountBalance, valueForAllShares: 0, totalFundsAdded: userProfile.totalFundsAdded };
     }
     users.set(owner, userProfile);
-    return { numOfStocks: userProfile.userStocks[stockSymbol], accountBalance: userProfile.accountBalance, changeInBalance: (shares * costPerShare), valueForAllShares: (userProfile.userStocks[stockSymbol] * costPerShare), totalFundsAdded: userProfile.totalFundsAdded};
+    return { numOfStocks: userProfile.userStocks[stockSymbol], accountBalance: userProfile.accountBalance, valueForAllShares: (userProfile.userStocks[stockSymbol] * costPerShare), totalFundsAdded: userProfile.totalFundsAdded};
 }
 
 userProfiles.deleteAccount = (owner) => {
