@@ -1,3 +1,4 @@
+let clickedOnce = true;
 const costPerShare = document.getElementById('costPerShare');
 const stockSymbolValue = document.title;
 const numberOfShares = document.getElementById('numShares');
@@ -19,6 +20,16 @@ const currencyFormatter = new Intl.NumberFormat('en-US', {
 });
 
 const openPriceValue = openPrice.textContent;
+
+function changeStyle() {
+    if (clickedOnce) {
+        document.getElementById('moreStockInformation').style.display = 'block';
+        clickedOnce = false;
+    } else {
+        document.getElementById('moreStockInformation').style.display = 'none';
+        clickedOnce = true;
+    }
+}
 
 lowPrice.innerHTML = currencyFormatter.format(parseFloat(lowPrice.textContent));
 highPrice.innerHTML = currencyFormatter.format(parseFloat(highPrice.textContent));
@@ -62,6 +73,11 @@ if (buyShares !== null) {
                             costPerShare.innerHTML = currencyFormatter.format(message['currentStockValue']);
                             messageBox.innerHTML = message['message'];
                             currentPrice.innerHTML = currencyFormatter.format(message['currentStockValue']);
+                            lowPrice.innerHTML = currencyFormatter.format(message['lowPriceStockValue']);
+                            highPrice.innerHTML = currencyFormatter.format(message['currentHighStockValue']);
+                            openPrice.innerHTML = currencyFormatter.format(message['openPriceStockValue']);
+                            previousClosePrice.innerHTML = currencyFormatter.format(message['previousClosePriceStockValue']);
+
                             changeOverTime.innerHTML = ((message['currentStockValue'] - openPriceValue) / 100).toFixed(3) + "%";
 
                             buyStocksAlert.style.display = 'block';

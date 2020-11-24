@@ -85,56 +85,61 @@ app.get('/stocks', (req, res) => {
     let advancedStockInfo;
 
     finnhubClient.quote(req.query.symbol, (error, data, response) => {
-        basicStockInfo = data;
-        basicStockInfo = {
-            o: data['o'].toFixed(2),
-            h: data['h'].toFixed(2),
-            l: data['l'].toFixed(2),
-            c: data['c'].toFixed(2),
-            pc: data['pc'].toFixed(2),
-            changeOverTime: ((data['c'] - data['o']) / 100).toFixed(3)
-        }
-        finnhubClient.companyProfile2({symbol: req.query.symbol}, (error, data, response) => {
-            if (basicStockInfo['o'] !== 0 && data !== null) {
-                advancedStockInfo = {
-                    country: data['country'],
-                    currency: data['country'],
-                    exchange: data['exchange'],
-                    shareOutstanding: data['shareOutstanding'].toFixed(2),
-                    ipo: (data['ipo'].getMonth()).toString() + "-" + (data['ipo'].getDate()).toString() + "-" + (data['ipo'].getFullYear()).toString(),
-                    name: data['name'],
-                    ticker: data['ticker']
-                }
-
-                let allStockData = {...basicStockInfo, ...advancedStockInfo};
-                if (req.session.user === undefined) {
-                    const userStatus = {
-                        accountStatus: 'Sign In',
-                        accountID: 'signIn',
-                        accountLink: 'signIn',
-                        portfolioLink: 'signIn',
-                        message: 'Sign In to Buy Stocks',
-                        script: ''
-                    }
-                    allStockData = {...allStockData, ...userStatus};
-                } else {
-                    const userStatus = {
-                        accountStatus: 'Sign Out',
-                        accountID: 'signOut',
-                        accountLink: 'logout',
-                        portfolioLink: 'myPortfolio',
-                        message: 'Final Price Determined by Real Time Value',
-                        script: '<script src="modalEnter.js"></script>'
-                    }
-                    allStockData = {...allStockData, ...userStatus};
-                }
-
-                res.render("stockPage.ejs", allStockData);
-            } else {
-                res.status(404);
-                res.render("notfound.ejs");
+        if (data['o'] !== null) {
+            basicStockInfo = data;
+            basicStockInfo = {
+                o: data['o'].toFixed(2),
+                h: data['h'].toFixed(2),
+                l: data['l'].toFixed(2),
+                c: data['c'].toFixed(2),
+                pc: data['pc'].toFixed(2),
+                changeOverTime: ((data['c'] - data['o']) / 100).toFixed(3)
             }
-        });
+            finnhubClient.companyProfile2({symbol: req.query.symbol}, (error, data, response) => {
+                if (basicStockInfo['o'] !== 0 && data !== null) {
+                    advancedStockInfo = {
+                        country: data['country'],
+                        currency: data['country'],
+                        exchange: data['exchange'],
+                        shareOutstanding: data['shareOutstanding'].toFixed(2),
+                        ipo: (data['ipo'].getMonth()).toString() + "-" + (data['ipo'].getDate()).toString() + "-" + (data['ipo'].getFullYear()).toString(),
+                        name: data['name'],
+                        ticker: data['ticker']
+                    }
+
+                    let allStockData = {...basicStockInfo, ...advancedStockInfo};
+                    if (req.session.user === undefined) {
+                        const userStatus = {
+                            accountStatus: 'Sign In',
+                            accountID: 'signIn',
+                            accountLink: 'signIn',
+                            portfolioLink: 'signIn',
+                            message: 'Sign In to Buy Stocks',
+                            script: ''
+                        }
+                        allStockData = {...allStockData, ...userStatus};
+                    } else {
+                        const userStatus = {
+                            accountStatus: 'Sign Out',
+                            accountID: 'signOut',
+                            accountLink: 'logout',
+                            portfolioLink: 'myPortfolio',
+                            message: 'Final Price Determined by Real Time Value',
+                            script: '<script src="modalEnter.js"></script>'
+                        }
+                        allStockData = {...allStockData, ...userStatus};
+                    }
+
+                    res.render("stockPage.ejs", allStockData);
+                } else {
+                    res.status(404);
+                    res.render("notfound.ejs");
+                }
+            });
+        } else {
+            res.status(404);
+            res.render("notfound.ejs");
+        }
     });
 });
 
@@ -359,7 +364,11 @@ app.post('/buyStock', (req, res)=> {
         UserProfiles.buyStock(req.session.user, req.body.stockSymbol, req.body.shares, currentStockValue);
         res.status(200).send({
             message: "Successfully Bought (Final Price Based on Real-Time Stock Value)",
-            currentStockValue: currentStockValue
+            currentStockValue: currentStockValue,
+            currentHighStockValue: data['h'],
+            lowPriceStockValue: data['l'],
+            openPriceStockValue: data['o'],
+            previousClosePriceStockValue: data['pc']
         });
         return;
     });
