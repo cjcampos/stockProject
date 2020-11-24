@@ -33,7 +33,7 @@ app.listen(process.env.PORT || 3000);
 
 // sends the homepage
 app.get('/', (req, res) => {
-    if (req.session.user == undefined) {
+    if (req.session.user === undefined) {
         const userStatus = {
             accountStatus: 'Sign In',
             accountID: 'signIn',
@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
 
 // sends the sign in page
 app.get('/signIn', (req, res) => {
-    if (req.session.user == undefined) {
+    if (req.session.user === undefined) {
         const userStatus = {
             accountStatus: 'Sign In',
             accountID: 'signIn',
@@ -91,7 +91,8 @@ app.get('/stocks', (req, res) => {
             h: data['h'].toFixed(2),
             l: data['l'].toFixed(2),
             c: data['c'].toFixed(2),
-            pc: data['pc'].toFixed(2)
+            pc: data['pc'].toFixed(2),
+            changeOverTime: ((data['c'] - data['o']) / 100).toFixed(3)
         }
         finnhubClient.companyProfile2({symbol: req.query.symbol}, (error, data, response) => {
             if (basicStockInfo['o'] !== 0 && data !== null) {
@@ -106,7 +107,7 @@ app.get('/stocks', (req, res) => {
                 }
 
                 let allStockData = {...basicStockInfo, ...advancedStockInfo};
-                if (req.session.user == undefined) {
+                if (req.session.user === undefined) {
                     const userStatus = {
                         accountStatus: 'Sign In',
                         accountID: 'signIn',
@@ -122,7 +123,7 @@ app.get('/stocks', (req, res) => {
                         accountID: 'signOut',
                         accountLink: 'logout',
                         portfolioLink: 'myPortfolio',
-                        message: 'Stock Final Price Uses Latest Stock Value',
+                        message: 'Final Price Determined by Real Time Value',
                         script: '<script src="modalEnter.js"></script>'
                     }
                     allStockData = {...allStockData, ...userStatus};
@@ -139,7 +140,7 @@ app.get('/stocks', (req, res) => {
 
 // sign up page
 app.get('/signUp', (req, res) => {
-    if (req.session.user == undefined) {
+    if (req.session.user === undefined) {
         const userStatus = {
             accountStatus: 'Sign In',
             accountID: 'signIn',
@@ -172,6 +173,7 @@ app.get('/myPortfolio', (req, res) => {
 
     let portfolioBalance = 0;
     const fundsRemaining = UserProfiles.getFunds(req.session.user);
+    const totalFundsAdded = UserProfiles.getTotalFundsAdded(req.session.user);
     let stock = [];
     const myStocks = UserProfiles.getAllStocks(req.session.user);
     let resultCounter = 0;
@@ -185,7 +187,8 @@ app.get('/myPortfolio', (req, res) => {
             accountStatus: 'Sign Out',
             accountID: 'signOut',
             accountLink: 'logout',
-            portfolioLink: 'myPortfolio'
+            portfolioLink: 'myPortfolio',
+            profitLoss: 0
         });
         return;
     }
@@ -194,13 +197,16 @@ app.get('/myPortfolio', (req, res) => {
         finnhubClient.quote(myStocks[index][0], (error, data, response) => {
             if (oncePerLoop) {
                 oncePerLoop = false;
-                portfolioBalance += data.c * myStocks[index][1];
-                stock[index] = {
-                    stockName: myStocks[index][0],
-                    shares: myStocks[index][1],
-                    currentValue: (data.c).toFixed(2),
-                    totalValueOfShares: (data.c * myStocks[index][1]).toFixed(2)
-                };
+                if(data['c'] !== 0) {
+                    portfolioBalance += data.c * myStocks[index][1];
+                    stock[index] = {
+                        stockName: myStocks[index][0],
+                        shares: myStocks[index][1],
+                        currentValue: (data['c']).toFixed(2),
+                        totalValueOfShares: (data['c'] * myStocks[index][1]).toFixed(2),
+                        changeInValue: ((data['c'] - data['o']) / 100).toFixed(3)
+                    };
+                }
                 resultCounter++;
                 if (resultCounter === myStocks.length) {
                     let moneyOnAccount = fundsRemaining.toFixed(2);
@@ -211,7 +217,8 @@ app.get('/myPortfolio', (req, res) => {
                         portfolio: portfolioValue,
                         accountStatus: 'Sign Out',
                         accountID: 'signOut',
-                        accountLink: 'logout'
+                        accountLink: 'logout',
+                        profitLoss: parseFloat(moneyOnAccount) + parseFloat(portfolioValue) - (totalFundsAdded)
                     });
                 }
                 oncePerLoop = true;
@@ -254,8 +261,6 @@ app.post('/login', (req,res) => {
                 accountID: 'signOut',
                 accountLink: 'logout',
                 portfolioLink: 'myPortfolio',
-                message: '',
-                currentUserName: '',
                 message: '<div class="alert-text" ><p>Invalid Parameters</p></div>',
                 currentUserName: req.body.user,
                 script: '<script src="signIn.js"></script>'
@@ -272,13 +277,6 @@ app.post('/login', (req,res) => {
 
 app.get('/logout', (req, res) => {
     delete req.session.user;
-    const userStatus = {
-        accountStatus: 'Sign In',
-        accountID: 'signIn',
-        accountLink: 'signIn',
-        portfolioLink: 'signIn'
-    }
-
     res.redirect('/');
 });
 
@@ -291,7 +289,7 @@ app.post('/signUp', (req, res)=> {
     }
 
     if (s === null) {
-        if (req.session.user == undefined) {
+        if (req.session.user === undefined) {
             const userStatus = {
                 accountStatus: 'Sign In',
                 accountID: 'signIn',
@@ -322,7 +320,7 @@ app.post('/signUp', (req, res)=> {
 });
 
 app.post('/addFunds', (req, res)=> {
-    if (req.session.user == undefined) {
+    if (req.session.user === undefined) {
         res.status(403).send("Unauthorized");
         return;
     }
@@ -340,7 +338,7 @@ app.post('/addFunds', (req, res)=> {
 });
 
 app.post('/buyStock', (req, res)=> {
-    if (req.session.user == undefined) {
+    if (req.session.user === undefined) {
         res.status(403).send("Unauthorized");
         return;
     }
@@ -360,7 +358,7 @@ app.post('/buyStock', (req, res)=> {
 
         UserProfiles.buyStock(req.session.user, req.body.stockSymbol, req.body.shares, currentStockValue);
         res.status(200).send({
-            message: "Successfully Sold (Final Price Based on Real-Time Stock Value)",
+            message: "Successfully Bought (Final Price Based on Real-Time Stock Value)",
             currentStockValue: currentStockValue
         });
         return;
@@ -368,13 +366,14 @@ app.post('/buyStock', (req, res)=> {
 });
 
 app.post('/sellStock', (req, res)=> {
-    if (req.session.user == undefined) {
+    if (req.session.user === undefined) {
         res.status(403).send("Unauthorized");
         return;
     }
 
     finnhubClient.quote(req.body.stockSymbol, (error, data, response) => {
         const currentStockValue = data['c'];
+        const currentChangeInStockValue = ((data['c'] - data['o']) / 100).toFixed(3);
 
         if (currentStockValue === 0) {
             res.status(500).send({ message: "Error, Could Not Get Current Stock Value" });
@@ -390,14 +389,15 @@ app.post('/sellStock', (req, res)=> {
         res.status(200).send({
             message: "Successfully Sold (Final Price Based on Real-Time Stock Value)",
             viewElements: newView,
-            currentStockValue: currentStockValue
+            currentStockValue: currentStockValue,
+            currentChangeInStockValue: currentChangeInStockValue
         });
         return;
     });
 });
 
 app.post('/delete', (req, res)=> {
-    if (req.session.user == undefined) {
+    if (req.session.user === undefined) {
         res.status(403).send("Unauthorized");
         return;
     }
@@ -406,15 +406,6 @@ app.post('/delete', (req, res)=> {
     delete req.session.user;
     res.status(200).send("Could not delete account");
     return;
-});
-
-app.get('/userInfo', (req, res) => {
-    if (req.session.user == undefined) {
-        res.status(403).send("Unauthorized");
-        return;
-    }
-
-    return UserProfiles.getFunds(req.session.user);
 });
 
 app.get('*', function(req, res){

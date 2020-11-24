@@ -81,30 +81,32 @@ searchBox.addEventListener("keydown", async function(e) {
     const boxOfAutoCompleteElements = document.getElementById("autocompleteList");
     if (boxOfAutoCompleteElements != null) {
         const autocompleteElements = boxOfAutoCompleteElements.getElementsByTagName("div");
-        if (e.key === "ArrowDown") {
-            if (currentSelection === autocompleteElements.length - 1) {
-                autocompleteElements[currentSelection].classList.remove("searchBarActive");
-                currentSelection = 0;
-            } else if (currentSelection === -1) {
-                currentSelection++;
-            } else {
-                autocompleteElements[currentSelection].classList.remove("searchBarActive");
-                currentSelection++;
+        if (autocompleteElements.length > 0) {
+            if (e.key === "ArrowDown") {
+                if (currentSelection === autocompleteElements.length - 1) {
+                    autocompleteElements[currentSelection].classList.remove("searchBarActive");
+                    currentSelection = 0;
+                } else if (currentSelection === -1) {
+                    currentSelection++;
+                } else {
+                    autocompleteElements[currentSelection].classList.remove("searchBarActive");
+                    currentSelection++;
+                }
+                autocompleteElements[currentSelection].classList.add('searchBarActive');
+            } else if (e.key === "ArrowUp") {
+                if (currentSelection === 0) {
+                    autocompleteElements[currentSelection].classList.remove("searchBarActive");
+                    currentSelection = autocompleteElements.length - 1;
+                } else if (currentSelection === -1) {
+                    currentSelection = autocompleteElements.length - 1;
+                } else {
+                    autocompleteElements[currentSelection].classList.remove("searchBarActive");
+                    currentSelection--;
+                }
+                autocompleteElements[currentSelection].classList.add('searchBarActive');
+            } else if (e.key === "Enter") {
+                autocompleteElements[currentSelection].click();
             }
-            autocompleteElements[currentSelection].classList.add('searchBarActive');
-        } else if (e.key === "ArrowUp") {
-            if (currentSelection === 0) {
-                autocompleteElements[currentSelection].classList.remove("searchBarActive");
-                currentSelection = autocompleteElements.length - 1;
-            } else if (currentSelection === -1) {
-                currentSelection = autocompleteElements.length - 1;
-            } else {
-                autocompleteElements[currentSelection].classList.remove("searchBarActive");
-                currentSelection--;
-            }
-            autocompleteElements[currentSelection].classList.add('searchBarActive');
-        } else if (e.key === "Enter") {
-            autocompleteElements[currentSelection].click();
         }
     }
 });

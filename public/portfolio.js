@@ -10,6 +10,7 @@ const portfolioAlert = document.getElementById('portfolioAlert');
 const modalDelete = document.getElementById('delete');
 const deleteAccount = document.getElementById('deleteAccount');
 const modalAddFunds = document.getElementById('funds');
+const profitLoss = document.getElementById('profitLoss');
 
 const currencyFormatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -21,6 +22,7 @@ let currentPortfolioBalance = parseFloat(portfolioBalance.textContent).toFixed(2
 
 accountBalance.innerHTML = currencyFormatter.format(parseFloat(accountBalance.textContent));
 portfolioBalance.innerHTML = currencyFormatter.format(parseFloat(portfolioBalance.textContent));
+profitLoss.innerHTML = currencyFormatter.format(parseFloat(profitLoss.textContent));
 
 portfolioAlert.addEventListener("click", () => {
     portfolioAlert.style.display = 'none';
@@ -53,13 +55,14 @@ deleteAccount.addEventListener('click', async () => {
     }
 });
 
-if (sellShares != null) {
+if (sellShares !== null) {
     sellShares.forEach(button => button.addEventListener("click", async function () {
-        const id = this.id.substring(4);;
+        const id = this.id.substring(4);
         const totalCost = document.getElementById('totalValueOfShares' + id);
         const costPerShare = document.getElementById('costPerShare' + id);
         const field = document.getElementById('field' + id);
         const currentSharesOwned = document.getElementById('numSharesOwned' + id);
+        const currentChangeInStockValue = document.getElementById('changeOverTime' + id);
 
         await fetch('/sellStock', {
             method: 'POST',
@@ -73,9 +76,11 @@ if (sellShares != null) {
                 response.json().then(message => {
                     costPerShare.innerHTML = currencyFormatter.format(message['currentStockValue']);
                     currentSharesOwned.innerHTML = ((message['viewElements'])['numOfStocks']);
+                    currentChangeInStockValue.innerHTML = message['currentChangeInStockValue'] + "%";
                     currentPortfolioBalance = currentPortfolioBalance - (message['viewElements'])['changeInBalance'];
                     portfolioBalance.innerHTML = currencyFormatter.format(currentPortfolioBalance);
                     messageBox.innerHTML = message['message'];
+                    profitLoss.innerHTML = currencyFormatter.format(((message['viewElements'])['accountBalance']) + currentPortfolioBalance - ((message['viewElements'])['totalFundsAdded']));
                     totalCost.innerHTML = currencyFormatter.format((message['viewElements'])['valueForAllShares']);
                     accountBalance.innerHTML = currencyFormatter.format((message['viewElements'])['accountBalance']);
                     portfolioAlert.style.display = 'block';
@@ -93,8 +98,9 @@ if (sellShares != null) {
 }
 
 numberOfSharesPortfolio.forEach(field => field.addEventListener("input", async () => {
-    const totalCost = document.getElementById('totalCost' + field.id);
-    const costPerShare = document.getElementById('costPerShare' + field.id);
+    const id = field.id.substring(5);
+    const totalCost = document.getElementById('totalCost' + id);
+    const costPerShare = document.getElementById('costPerShare' + id);
     const costPerShareValue = parseFloat(((costPerShare.textContent).substring(1)).replace(/,/g, ""));
     if(field.value >= 0) {
         totalCost.innerText = currencyFormatter.format(costPerShareValue * field.value);
@@ -133,7 +139,6 @@ addFunds.addEventListener("click", async function () {
                 } else if (response.status === 400) {
                     addFundsField.value = '';
                     response.json().then(message => {
-                        accountBalance.innerHTML = currencyFormatter.format(message['newAccountBalance']);
                         messageBox.innerHTML = message['message'];
                         portfolioAlert.style.display = 'block';
                     });

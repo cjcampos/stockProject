@@ -5,6 +5,7 @@ class userProfiles {
         this.password = password;
         this.accountBalance = accountBalance;
         this.userStocks = {};
+        this.totalFundsAdded = accountBalance;
     }
 }
 
@@ -40,9 +41,16 @@ userProfiles.getFunds = (owner) => {
     return userProfile.accountBalance;
 }
 
+userProfiles.getTotalFundsAdded = (owner) => {
+    const userProfile = users.get(owner);
+    users.save();
+    return userProfile.totalFundsAdded;
+}
+
 userProfiles.updateAddFunds = (owner, fundsToAdd) => {
     const userProfile = users.get(owner);
     userProfile.accountBalance += parseFloat(fundsToAdd);
+    userProfile.totalFundsAdded += parseFloat(fundsToAdd);
     users.set(owner, userProfile);
     users.save();
     return userProfile.accountBalance;
@@ -58,7 +66,7 @@ userProfiles.buyStock = (owner, stockSymbol, shares, costPerShare) => {
     const userProfile = users.get(owner);
     if (userProfile.accountBalance >= (shares * costPerShare)) {
         userProfile.accountBalance -= (shares * costPerShare);
-        if (userProfile.userStocks[stockSymbol] != undefined) {
+        if (userProfile.userStocks[stockSymbol] !== undefined) {
             userProfile.userStocks[stockSymbol] = parseInt(shares) + parseInt(userProfile.userStocks[stockSymbol]);
             users.set(owner, userProfile);
             users.save();
@@ -86,10 +94,10 @@ userProfiles.sellStock = (owner, stockSymbol, shares, costPerShare) => {
     if (userProfile.userStocks[stockSymbol] === 0) {
         delete userProfile.userStocks[stockSymbol];
         users.set(owner, userProfile);
-        return { numOfStocks: 0, accountBalance: userProfile.accountBalance, changeInBalance: (shares * costPerShare), valueForAllShares: 0 };
+        return { numOfStocks: 0, accountBalance: userProfile.accountBalance, changeInBalance: (shares * costPerShare), valueForAllShares: 0, totalFundsAdded: userProfile.totalFundsAdded };
     }
     users.set(owner, userProfile);
-    return { numOfStocks: userProfile.userStocks[stockSymbol], accountBalance: userProfile.accountBalance, changeInBalance: (shares * costPerShare), valueForAllShares: (userProfile.userStocks[stockSymbol] * costPerShare)};
+    return { numOfStocks: userProfile.userStocks[stockSymbol], accountBalance: userProfile.accountBalance, changeInBalance: (shares * costPerShare), valueForAllShares: (userProfile.userStocks[stockSymbol] * costPerShare), totalFundsAdded: userProfile.totalFundsAdded};
 }
 
 userProfiles.deleteAccount = (owner) => {

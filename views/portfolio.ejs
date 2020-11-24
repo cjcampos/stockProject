@@ -39,6 +39,9 @@
                     <td>Value of Portfolio</td>
                     <td><strong id="portfolioBalance"><%= portfolio %></strong></td>
                 </tr>
+                <tr>
+                    <td colspan="4" align="center">Profit/Loss  <strong id="profitLoss"><%= profitLoss %></strong></td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -64,7 +67,7 @@
                                     <p>Funds to Add</p>
                                 </div>
                                 <div class="col-4">
-                                    <input autocomplete="off" type="number" min="0.01" step="0.01" class="form-control" placeholder="$300" id="addFundsField">
+                                    <input autocomplete="off" type="number" min="0.01" step="0.01" class="form-control" placeholder="$300.00" id="addFundsField">
                                 </div>
                             </div>
                         </form>
@@ -128,6 +131,8 @@
                     <tr>
                         <td>Current Value of All Shares</td>
                         <td><strong id="totalValueOfShares<%= stock.stockName %>">$<%= stock.totalValueOfShares %></strong></td>
+                        <td>Change in Stock Value</td>
+                        <td><strong id="changeOverTime<%= stock.stockName %>"><%= stock.changeInValue %>%</strong></td>
                     </tr>
                     </tbody>
                 </table>
