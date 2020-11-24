@@ -19,5 +19,15 @@
       "DPZ": 1,
       "AMZN": 1
     }
+  },
+  "bbb": {
+    "password": "bbb",
+    "accountBalance": null,
+    "userStocks": {}
+  },
+  "aa": {
+    "password": "aa",
+    "accountBalance": null,
+    "userStocks": {}
   }
 }

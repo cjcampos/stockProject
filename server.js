@@ -285,9 +285,10 @@ app.get('/logout', (req, res) => {
 
 app.post('/signUp', (req, res)=> {
     let s;
-    if (req.body.user === null || req.body.password == null || req.body.accountBalance == null) {
+    if (req.body.user === null || req.body.password === null || req.body.accountBalance === null || req.body.accountBalance === '') {
         s = null;
     } else {
+        console.log(req.body.accountBalance);
         s = UserProfiles.create(req.body.user, req.body.password, req.body.accountBalance);
     }
 
