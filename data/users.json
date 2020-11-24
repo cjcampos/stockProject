@@ -1,16 +1,1 @@
-{
-  "hello": {
-    "password": "hello",
-    "accountBalance": 162,
-    "userStocks": {},
-    "totalFundsAdded": 162
-  },
-  "test": {
-    "password": "test",
-    "accountBalance": 954.0200000000002,
-    "userStocks": {
-      "DIS": 1
-    },
-    "totalFundsAdded": 1100
-  }
-}
+{ }

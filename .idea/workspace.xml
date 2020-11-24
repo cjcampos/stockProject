@@ -25,20 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="working version">
-      <change afterPath="$PROJECT_DIR$/public/modalBuy.js" afterDir="false" />
+    <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="updated version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/buyStocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/buyStocks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/portfolio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/signIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/signIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userProfiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/userProfiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/portfolio.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/portfolio.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/sign-in.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/sign-in.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/stockPage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/stockPage.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +102,7 @@
       <workItem from="1606124053316" duration="75000" />
       <workItem from="1606144685620" duration="30369000" />
       <workItem from="1606182763026" duration="4928000" />
-      <workItem from="1606188959711" duration="20017000" />
+      <workItem from="1606188959711" duration="20107000" />
     </task>
     <task id="LOCAL-00001" summary="updated new">
       <created>1605407167352</created>
@@ -255,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606182269864</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="updated version">
+      <created>1606211883364</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1606211883364</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +290,8 @@
     <MESSAGE value="Second Attempt" />
     <MESSAGE value="First Testing" />
     <MESSAGE value="working version" />
-    <option name="LAST_COMMIT_MESSAGE" value="working version" />
+    <MESSAGE value="updated version" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated version" />
   </component>
   <component name="WindowStateProjectService">
     <state x="518" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606121842317">
