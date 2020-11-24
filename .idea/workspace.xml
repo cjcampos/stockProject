@@ -25,11 +25,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="profit/loss">
+    <list default="true" id="29f00618-4298-4e56-a0e4-26ba3db1e64d" name="Default Changelist" comment="profit/loss updated modal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/modalBuy.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/modalBuy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/portfolio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +106,9 @@
       <workItem from="1606188959711" duration="20166000" />
       <workItem from="1606212257283" duration="797000" />
       <workItem from="1606231414720" duration="8031000" />
-      <workItem from="1606239598806" duration="1123000" />
+      <workItem from="1606239598806" duration="1319000" />
+      <workItem from="1606241913375" duration="2628000" />
+      <workItem from="1606248727707" duration="249000" />
     </task>
     <task id="LOCAL-00001" summary="updated new">
       <created>1605407167352</created>
@@ -284,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606238833763</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="profit/loss updated modal">
+      <created>1606240925188</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1606240925188</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,17 +333,18 @@
     <MESSAGE value="working version" />
     <MESSAGE value="updated version" />
     <MESSAGE value="profit/loss" />
-    <option name="LAST_COMMIT_MESSAGE" value="profit/loss" />
+    <MESSAGE value="profit/loss updated modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="profit/loss updated modal" />
   </component>
   <component name="WindowStateProjectService">
     <state x="518" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606121842317">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="518" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1606121842317" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606238840864">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1606240932996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606238840864" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606240932996" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606193411175">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

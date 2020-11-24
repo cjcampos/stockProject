@@ -193,7 +193,7 @@ app.get('/myPortfolio', (req, res) => {
             accountID: 'signOut',
             accountLink: 'logout',
             portfolioLink: 'myPortfolio',
-            profitLoss: 0
+            profitLoss: fundsRemaining.toFixed(2) - totalFundsAdded
         });
         return;
     }
