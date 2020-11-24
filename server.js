@@ -62,7 +62,8 @@ app.get('/signIn', (req, res) => {
             accountLink: 'signIn',
             portfolioLink: 'signIn',
             message: '',
-            currentUserName: ''
+            currentUserName: '',
+            script: ''
 
         }
         res.render("sign-in.ejs", userStatus);
@@ -73,7 +74,8 @@ app.get('/signIn', (req, res) => {
             accountLink: 'logout',
             portfolioLink: 'myPortfolio',
             message: '',
-            currentUserName: ''
+            currentUserName: '',
+            script: ''
         }
         res.render("sign-in.ejs", userStatus);
     }
@@ -93,10 +95,10 @@ app.get('/stocks', (req, res) => {
             pc: data['pc'].toFixed(2)
         }
         finnhubClient.companyProfile2({symbol: req.query.symbol}, (error, data, response) => {
-            if (basicStockInfo['o'] != 0) {
+            if (basicStockInfo['o'] !== 0 && data !== null) {
                 advancedStockInfo = {
                     country: data['country'],
-                    currency: data['currency'],
+                    currency: data['country'],
                     exchange: data['exchange'],
                     shareOutstanding: data['shareOutstanding'].toFixed(2),
                     ipo: (data['ipo'].getMonth()).toString() + "-" + (data['ipo'].getDate()).toString() + "-" + (data['ipo'].getFullYear()).toString(),
@@ -110,7 +112,9 @@ app.get('/stocks', (req, res) => {
                         accountStatus: 'Sign In',
                         accountID: 'signIn',
                         accountLink: 'signIn',
-                        portfolioLink: 'signIn'
+                        portfolioLink: 'signIn',
+                        message: 'Sign In to Buy Stocks',
+                        script: ''
                     }
                     allStockData = {...allStockData, ...userStatus};
                 } else {
@@ -118,7 +122,9 @@ app.get('/stocks', (req, res) => {
                         accountStatus: 'Sign Out',
                         accountID: 'signOut',
                         accountLink: 'logout',
-                        portfolioLink: 'myPortfolio'
+                        portfolioLink: 'myPortfolio',
+                        message: 'Stock Final Price Uses Latest Stock Value',
+                        script: '<script src="modalEnter.js"></script>'
                     }
                     allStockData = {...allStockData, ...userStatus};
                 }
@@ -132,7 +138,7 @@ app.get('/stocks', (req, res) => {
     });
 });
 
-// get advanced stock data from the API
+// sign up page
 app.get('/signUp', (req, res) => {
     if (req.session.user == undefined) {
         const userStatus = {
@@ -141,7 +147,8 @@ app.get('/signUp', (req, res) => {
             accountLink: 'signIn',
             portfolioLink: 'signIn',
             message: '',
-            currentUserName: ''
+            currentUserName: '',
+            script: ''
         }
         res.render("sign-up.ejs", userStatus);
     } else {
@@ -151,7 +158,8 @@ app.get('/signUp', (req, res) => {
             accountLink: 'logout',
             portfolioLink: 'myPortfolio',
             message: '',
-            currentUserName: ''
+            currentUserName: '',
+            script: ''
         }
         res.render("sign-up.ejs", userStatus);
     }
@@ -237,7 +245,8 @@ app.post('/login', (req,res) => {
                 accountLink: 'signIn',
                 portfolioLink: 'signIn',
                 message: '<div class="alert-text" ><p>Invalid Parameters</p></div>',
-                currentUserName: req.body.user
+                currentUserName: req.body.user,
+                script: '<script src="signIn.js"></script>'
             }
             res.render("sign-in.ejs", userStatus);
         } else {
@@ -249,7 +258,8 @@ app.post('/login', (req,res) => {
                 message: '',
                 currentUserName: '',
                 message: '<div class="alert-text" ><p>Invalid Parameters</p></div>',
-                currentUserName: req.body.user
+                currentUserName: req.body.user,
+                script: '<script src="signIn.js"></script>'
             }
             res.render("sign-in.ejs", userStatus);
         }
@@ -274,7 +284,12 @@ app.get('/logout', (req, res) => {
 });
 
 app.post('/signUp', (req, res)=> {
-    let s = UserProfiles.create(req.body.user, req.body.password, req.body.accountBalance);
+    let s;
+    if (req.body.user === null || req.body.password == null || req.body.accountBalance == null) {
+        s = null;
+    } else {
+        s = UserProfiles.create(req.body.user, req.body.password, req.body.accountBalance);
+    }
 
     if (s === null) {
         if (req.session.user == undefined) {
@@ -283,8 +298,9 @@ app.post('/signUp', (req, res)=> {
                 accountID: 'signIn',
                 accountLink: 'signIn',
                 portfolioLink: 'signIn',
-                message: '<div class="alert-text" ><p>Invalid Parameters</p></div>',
-                currentUserName: req.body.user
+                message: '<div class="alert-text"><p>Invalid Parameters</p></div>',
+                currentUserName: req.body.user,
+                script: '<script src="signUp.js"></script>'
             }
             res.render("sign-up.ejs", userStatus);
         } else {
@@ -296,13 +312,14 @@ app.post('/signUp', (req, res)=> {
                 message: '',
                 currentUserName: '',
                 message: '<div class="alert-text" ><p>Invalid Parameters</p></div>',
-                currentUserName: req.body.user
+                currentUserName: req.body.user,
+                script: '<script src="signUp.js"></script>'
             }
-            res.render("sign-up.ejs", userStatus);
+            return res.render("sign-up.ejs", userStatus);
         }
+    } else {
+        res.redirect('/signIn');
     }
-
-    res.redirect('/signIn');
 });
 
 app.post('/addFunds', (req, res)=> {
@@ -312,12 +329,14 @@ app.post('/addFunds', (req, res)=> {
     }
 
     if (req.body.fundsToAdd <= 0) {
-        res.status(400).send("Invalid sum of funds");
+        res.status(400).send({message: "Invalid sum of funds"});
         return;
     }
 
-    UserProfiles.updateAddFunds(req.session.user, req.body.fundsToAdd);
-    res.status(200).send("Successfully Added Funds");
+    const newAccountBalance = UserProfiles.updateAddFunds(req.session.user, req.body.fundsToAdd);
+    res.status(200).send({
+        message: "Successfully Added Funds", newAccountBalance: newAccountBalance
+    }, );
     return;
 });
 
@@ -327,6 +346,28 @@ app.post('/buyStock', (req, res)=> {
         return;
     }
 
+    finnhubClient.quote(req.body.stockSymbol, (error, data, response) => {
+        const currentStockValue = data['c'];
+
+        if (currentStockValue === 0) {
+            res.status(500).send({ message: "Error, Could Not Get Current Stock Value" } );
+            return;
+        }
+
+        if (!(UserProfiles.canBuyStock(req.session.user, req.body.shares, currentStockValue))) {
+            res.status(400).send({message: "Not Enough Funds" });
+            return;
+        }
+
+        UserProfiles.buyStock(req.session.user, req.body.stockSymbol, req.body.shares, currentStockValue);
+        res.status(200).send({
+            message: "Successfully Sold (Final Price Based on Real-Time Stock Value)",
+            currentStockValue: currentStockValue
+        });
+        return;
+    });
+
+    /**
     if (!(UserProfiles.canBuyStock(req.session.user, req.body.shares, req.body.costPerShare))) {
         res.status(400).send("Not Enough Funds");
         return;
@@ -335,6 +376,7 @@ app.post('/buyStock', (req, res)=> {
     UserProfiles.buyStock(req.session.user, req.body.stockSymbol, req.body.shares, req.body.costPerShare);
     res.status(200).send("Successfully Bought");
     return;
+     **/
 });
 
 app.post('/sellStock', (req, res)=> {
@@ -343,14 +385,27 @@ app.post('/sellStock', (req, res)=> {
         return;
     }
 
-    if (!(UserProfiles.hasStock(req.session.user, req.body.stockSymbol, req.body.shares))) {
-        res.status(400).send("Do Not Have Stock or Enough Shares");
-        return;
-    }
+    finnhubClient.quote(req.body.stockSymbol, (error, data, response) => {
+        const currentStockValue = data['c'];
 
-    UserProfiles.sellStock(req.session.user, req.body.stockSymbol, req.body.shares, req.body.costPerShare);
-    res.status(200).send("Successfully Sold");
-    return;
+        if (currentStockValue === 0) {
+            res.status(500).send({ message: "Error, Could Not Get Current Stock Value" });
+            return;
+        }
+
+        if (!(UserProfiles.hasStock(req.session.user, req.body.stockSymbol, req.body.shares))) {
+            res.status(400).send({ message: "Do Not Have Stock or Enough Shares" });
+            return;
+        }
+
+        const newView = UserProfiles.sellStock(req.session.user, req.body.stockSymbol, req.body.shares, currentStockValue);
+        res.status(200).send({
+            message: "Successfully Sold (Final Price Based on Real-Time Stock Value)",
+            viewElements: newView,
+            currentStockValue: currentStockValue
+        });
+        return;
+    });
 });
 
 app.post('/delete', (req, res)=> {
@@ -361,7 +416,7 @@ app.post('/delete', (req, res)=> {
 
     UserProfiles.deleteAccount(req.session.user);
     delete req.session.user;
-    res.status(200);
+    res.status(200).send("Could not delete account");
     return;
 });
 

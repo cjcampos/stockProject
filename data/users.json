@@ -1,1 +1,23 @@
-{}
+{
+  "hello": {
+    "password": "hello",
+    "accountBalance": 62906.469999999994,
+    "userStocks": {
+      "AAPL": 1,
+      "AMZN": 12
+    }
+  },
+  "": {
+    "password": "",
+    "accountBalance": null,
+    "userStocks": {}
+  },
+  "kmp": {
+    "password": "kmp",
+    "accountBalance": 27514.4,
+    "userStocks": {
+      "DPZ": 1,
+      "AMZN": 1
+    }
+  }
+}

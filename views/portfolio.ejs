@@ -35,9 +35,9 @@
                 <tbody>
                 <tr>
                     <td>My Balance&nbsp;</td>
-                    <td><strong id="accountBalance">$<%= accountBalance %></strong></td>
+                    <td><strong id="accountBalance"><%= accountBalance %></strong></td>
                     <td>Value of Portfolio</td>
-                    <td><strong id="portfolioBalance">$<%= portfolio %></strong></td>
+                    <td><strong id="portfolioBalance"><%= portfolio %></strong></td>
                 </tr>
                 </tbody>
             </table>
@@ -114,7 +114,7 @@
 </div>
 
     <% stocks.forEach(function (stock) { %>
-        <div class="card" id="allDiv<%= stock.stockName %>">
+        <div class="card allDiv" id="stockElement<%= stock.stockName %>">
             <div class="card-body">
                 <h1 id="stockTitle" class="card-title"><%= stock.stockName %></h1>
                 <table class="table">
@@ -123,7 +123,7 @@
                         <td>Current Value Per Share</td>
                         <td><strong>$<%= stock.currentValue %></strong></td>
                         <td>Number of Shares Owned</td>
-                        <td id="numSharesOwned<%= stock.stockName %>"><strong><%= stock.shares %></strong></td>
+                        <td><strong id="numSharesOwned<%= stock.stockName %>"><%= stock.shares %></strong></td>
                     </tr>
                     <tr>
                         <td>Current Value of All Shares</td>
@@ -156,7 +156,7 @@
                                         <p>Number of shares</p>
                                     </div>
                                     <div class="col-4">
-                                        <input autocomplete="off" type="text" class="form-control numShares" value="1" id="<%= stock.stockName %>">
+                                        <input autocomplete="off" type="text" class="form-control numShares" value="1" id="field<%= stock.stockName %>">
                                     </div>
                                     <div class="col-8">
                                         <p>Sell Price per Share</p>

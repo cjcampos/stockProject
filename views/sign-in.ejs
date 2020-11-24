@@ -26,7 +26,7 @@
 </header>
 <div class="container">
     <% if (message != '') { %>
-        <div class="alert-text" ><p>Invalid User Name or Password</p></div>
+        <div class="alert-text" id="signInAlert"><p>Invalid User Name or Password</p></div>
     <% } %>
     <form action="/login" method="post">
         <div class="form-group">
@@ -43,6 +43,9 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="header.js"></script>
+<% if (script != '') { %>
+    <script src="signIn.js"></script>
+<% } %>
 </body>
 
 </html>

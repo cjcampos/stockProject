@@ -25,8 +25,8 @@
     </nav>
 </header>
 <div class="container">
-    <div class="alert-text" id="portfolioAlert">
-        <p id="message"></p>
+    <div class="alert-text" id="buyStocksAlert">
+        <p id="message"><%= message %></p>
     </div>
     <div class="card mb-3">
         <div id="stockInformation" class="card-body">
@@ -35,19 +35,19 @@
                 <tbody>
                 <tr>
                     <td>Open Price of the Day</td>
-                    <td>$<%= o %></td>
+                    <td id="openPrice"><%= o %></td>
                     <td>High Price of the Day</td>
-                    <td>$<%= h %></td>
+                    <td id="highPrice"><%= h %></td>
                 </tr>
                 <tr>
                     <td>Low Price of the Day</td>
-                    <td>$<%= l %></td>
+                    <td id="lowPrice"><%= l %></td>
                     <td>Current Price</td>
-                    <td>$<%= c %></td>
+                    <td id="currentPrice"><%= c %></td>
                 </tr>
                 <tr>
                     <td>Previous Close Price</td>
-                    <td>$<%= pc %></td>
+                    <td id="previousClosePrice"><%= pc %></td>
                 </tr>
                 </tbody>
             </table>
@@ -82,13 +82,13 @@
                                         <p>Cost per Share</p>
                                     </div>
                                     <div class="col-4">
-                                        <p id="costPerShare">$<%= c %></p>
+                                        <p id="costPerShare"><%= c %></p>
                                     </div>
                                     <div class="col-8">
                                         <p>Total Cost</p>
                                     </div>
                                     <div class="col-4">
-                                        <p id="totalCost">$<%= c %></p>
+                                        <p id="totalCost"><%= c %></p>
                                     </div>
                                 </div>
                             </form>
@@ -134,5 +134,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 <script src="buyStocks.js"></script>
 <script src="header.js"></script>
+<% if (script != '') { %>
+    <script src="modalEnter.js"></script>
+<% } %>
 </body>
 </html>

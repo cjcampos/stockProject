@@ -45,6 +45,7 @@ userProfiles.updateAddFunds = (owner, fundsToAdd) => {
     userProfile.accountBalance += parseFloat(fundsToAdd);
     users.set(owner, userProfile);
     users.save();
+    return userProfile.accountBalance;
 }
 
 userProfiles.canBuyStock = (owner, shares, costPerShare) => {
@@ -72,7 +73,7 @@ userProfiles.buyStock = (owner, stockSymbol, shares, costPerShare) => {
 userProfiles.hasStock = (owner, stockSymbol, shares) => {
     const userProfile = users.get(owner);
     if (userProfile.userStocks[stockSymbol] !== undefined) {
-        return (userProfile.userStocks[stockSymbol] >= shares);
+        return (userProfile.userStocks[stockSymbol] >= shares && shares >= 0);
     } else {
         return false;
     }
@@ -84,8 +85,11 @@ userProfiles.sellStock = (owner, stockSymbol, shares, costPerShare) => {
     userProfile.userStocks[stockSymbol] = userProfile.userStocks[stockSymbol] - shares;
     if (userProfile.userStocks[stockSymbol] === 0) {
         delete userProfile.userStocks[stockSymbol];
+        users.set(owner, userProfile);
+        return { numOfStocks: 0, accountBalance: userProfile.accountBalance, changeInBalance: (shares * costPerShare), valueForAllShares: 0 };
     }
     users.set(owner, userProfile);
+    return { numOfStocks: userProfile.userStocks[stockSymbol], accountBalance: userProfile.accountBalance, changeInBalance: (shares * costPerShare), valueForAllShares: (userProfile.userStocks[stockSymbol] * costPerShare)};
 }
 
 userProfiles.deleteAccount = (owner) => {
