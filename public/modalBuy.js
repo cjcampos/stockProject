@@ -62,9 +62,7 @@ if (buyShares !== null) {
                             costPerShare.innerHTML = currencyFormatter.format(message['currentStockValue']);
                             messageBox.innerHTML = message['message'];
                             currentPrice.innerHTML = currencyFormatter.format(message['currentStockValue']);
-                            console.log(message['currentStockValue']);
-                            console.log(openPriceValue);
-                            changeOverTime.innerHTML = (message['currentStockValue'] - openPriceValue).toFixed(3) + "%";
+                            changeOverTime.innerHTML = ((message['currentStockValue'] - openPriceValue) / 100).toFixed(3) + "%";
 
                             buyStocksAlert.style.display = 'block';
 

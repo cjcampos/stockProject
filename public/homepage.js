@@ -103,7 +103,6 @@ async function test() {
         },
         body: JSON.stringify(data)
     });
-    console.log(result.json);
 }
 
 function debounce(func, wait) {
@@ -207,8 +206,6 @@ if (sellShares != null) {
         const totalCost = document.getElementById('costPerShare' + id);
         const costPerShare = document.getElementById('costPerShare' + id);
         const field = document.getElementById(id);
-        console.log(field);
-        console.log(field.value);
         await fetch('/sellStock', {
             method: 'POST',
             headers: {

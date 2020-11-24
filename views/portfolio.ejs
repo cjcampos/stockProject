@@ -117,6 +117,11 @@
 </div>
 
     <% stocks.forEach(function (stock) { %>
+        <% const currencyFormatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2
+        }); %>
         <div class="card allDiv" id="stockElement<%= stock.stockName %>">
             <div class="card-body">
                 <h1 id="stockTitle" class="card-title"><%= stock.stockName %></h1>
@@ -124,13 +129,13 @@
                     <tbody>
                     <tr>
                         <td>Current Value Per Share</td>
-                        <td><strong>$<%= stock.currentValue %></strong></td>
+                        <td><strong><%= currencyFormatter.format(stock.currentValue) %></strong></td>
                         <td>Number of Shares Owned</td>
                         <td><strong id="numSharesOwned<%= stock.stockName %>"><%= stock.shares %></strong></td>
                     </tr>
                     <tr>
                         <td>Current Value of All Shares</td>
-                        <td><strong id="totalValueOfShares<%= stock.stockName %>">$<%= stock.totalValueOfShares %></strong></td>
+                        <td><strong id="totalValueOfShares<%= stock.stockName %>"><%= currencyFormatter.format(stock.totalValueOfShares) %></strong></td>
                         <td>Change in Stock Value</td>
                         <td><strong id="changeOverTime<%= stock.stockName %>"><%= stock.changeInValue %>%</strong></td>
                     </tr>

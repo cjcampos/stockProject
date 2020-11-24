@@ -1,1 +1,12 @@
-{ }
+{
+  "hello": {
+    "password": "hello",
+    "accountBalance": 5131.109999999999,
+    "userStocks": {
+      "AMZN": 1,
+      "AAPL": 6,
+      "TSLA": 4
+    },
+    "totalFundsAdded": 11000
+  }
+}
