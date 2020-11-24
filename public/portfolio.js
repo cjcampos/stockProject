@@ -64,6 +64,7 @@ if (sellShares !== null) {
         const currentSharesOwned = document.getElementById('numSharesOwned' + id);
         const currentChangeInStockValue = document.getElementById('changeOverTime' + id);
         const currentValuePerShare = document.getElementById('currentValuePerShare' + id);
+        const modalTotalCost = document.getElementById('totalCost' + id);
 
         await fetch('/sellStock', {
             method: 'POST',
@@ -77,6 +78,7 @@ if (sellShares !== null) {
                 response.json().then(message => {
                     const valueForAllShares = ((totalCost.textContent).substring(1)).replace(/,/g, "");
                     costPerShare.innerHTML = currencyFormatter.format(message['currentStockValue']);
+                    modalTotalCost.innerHTML = currencyFormatter.format(message['currentStockValue']);
                     currentValuePerShare.innerHTML = currencyFormatter.format(message['currentStockValue']);
                     currentSharesOwned.innerHTML = ((message['viewElements'])['numOfStocks']);
                     currentChangeInStockValue.innerHTML = message['currentChangeInStockValue'] + "%";

@@ -71,6 +71,7 @@ if (buyShares !== null) {
                         numberOfShares.value = 1;
                         response.json().then(message => {
                             costPerShare.innerHTML = currencyFormatter.format(message['currentStockValue']);
+                            totalCost.innerHTML = currencyFormatter.format(message['currentStockValue']);
                             messageBox.innerHTML = message['message'];
                             currentPrice.innerHTML = currencyFormatter.format(message['currentStockValue']);
                             lowPrice.innerHTML = currencyFormatter.format(message['lowPriceStockValue']);

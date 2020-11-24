@@ -1,1 +1,10 @@
-{ }
+{
+  "hello": {
+    "password": "hello",
+    "accountBalance": 8760.635,
+    "userStocks": {
+      "WMT": 9
+    },
+    "totalFundsAdded": 10123
+  }
+}
