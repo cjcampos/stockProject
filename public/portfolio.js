@@ -59,9 +59,7 @@ if (sellShares != null) {
         const totalCost = document.getElementById('totalValueOfShares' + id);
         const costPerShare = document.getElementById('costPerShare' + id);
         const field = document.getElementById('field' + id);
-        //console.log(field);
         const currentSharesOwned = document.getElementById('numSharesOwned' + id);
-        // const numberOfCurrentShares = parseInt(currentSharesOwned.textContent);
 
         await fetch('/sellStock', {
             method: 'POST',
@@ -91,42 +89,12 @@ if (sellShares != null) {
                 });
             }
         });
-
-        /**
-        if (numberOfCurrentShares >= field.value) {
-            const currentTotalValue = parseFloat(totalCost.textContent.substring(1)).toFixed(2);
-            const currentValuePerShare = parseFloat(costPerShare.textContent.substring(1)).toFixed(2);
-            const currentAccountBalance = parseFloat(accountBalance.textContent.substring(1)).toFixed(2);
-            const currentPortfolioBalance = parseFloat(portfolioBalance.textContent.substring(1)).toFixed(2);
-            totalCost.innerHTML = "$" + ((currentTotalValue - (currentValuePerShare * field.value)).toFixed(2));
-            currentSharesOwned.innerHTML = numberOfCurrentShares - field.value;
-            accountBalance.innerHTML = "$" + ((+currentAccountBalance + (currentValuePerShare * field.value)).toFixed(2));
-            portfolioBalance.innerHTML = "$" + ((+currentPortfolioBalance - (currentValuePerShare * field.value)).toFixed(2));
-        } else {
-            messageBox.innerHTML = "Cannot sell more shares than you own";
-            portfolioAlert.style.display = 'block';
-        }
-         **/
-
-        /**
-        if (response.status === 200) {
-            field.value = 1;
-            messageBox.innerHTML = "Successfully sold shares";
-            portfolioAlert.style.display = 'block';
-        } else if (response.status === 400) {
-            field.value = 1;
-            messageBox.innerHTML = "Error, you do not own enough shares of the stock";
-            portfolioAlert.style.display = 'block';
-        }
-         **/
     }));
 }
 
 numberOfSharesPortfolio.forEach(field => field.addEventListener("input", async () => {
     const totalCost = document.getElementById('totalCost' + field.id);
     const costPerShare = document.getElementById('costPerShare' + field.id);
-    console.log(field.id);
-    console.log(costPerShare);
     const costPerShareValue = parseFloat(((costPerShare.textContent).substring(1)).replace(/,/g, ""));
     if(field.value >= 0) {
         totalCost.innerText = currencyFormatter.format(costPerShareValue * field.value);
@@ -160,7 +128,6 @@ addFunds.addEventListener("click", async function () {
                     response.json().then(message => {
                         accountBalance.innerHTML = currencyFormatter.format(message['newAccountBalance']);
                         messageBox.innerHTML = message['message'];
-                        console.log(message);
                         portfolioAlert.style.display = 'block';
                     });
                 } else if (response.status === 400) {
@@ -173,20 +140,6 @@ addFunds.addEventListener("click", async function () {
                 }
             });
         }
-        // console.log(result);
-        // const currentAccountBalance = parseFloat(accountBalance.textContent.substring(1)).toFixed(2);
-        // const fundsToAdd = parseFloat(addFundsField.value);
-        // accountBalance.innerHTML = "$" + ((+currentAccountBalance + +fundsToAdd).toFixed(2));
-        /**
-        if (result.status === 200) {
-            addFundsField.value = '';
-            message.innerHTML = "Successfully added funds";
-            portfolioAlert.style.display = 'block';
-        } else if (result.status === 400) {
-            message.innerHTML = "Error, invalid sum of funds";
-            portfolioAlert.style.display = 'block';
-        }
-         **/
     } else {
         messageBox.innerHTML = "Error, invalid sum of funds";
         portfolioAlert.style.display = 'block';

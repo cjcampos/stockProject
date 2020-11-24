@@ -30,7 +30,6 @@ app.set('view engine', ejs);
 app.use(express.static('public'));
 
 app.listen(process.env.PORT || 3000);
-// app.listen(8080);
 
 // sends the homepage
 app.get('/', (req, res) => {
@@ -288,7 +287,6 @@ app.post('/signUp', (req, res)=> {
     if (req.body.user === null || req.body.password === null || req.body.accountBalance === null || req.body.accountBalance === '') {
         s = null;
     } else {
-        console.log(req.body.accountBalance);
         s = UserProfiles.create(req.body.user, req.body.password, req.body.accountBalance);
     }
 
@@ -367,17 +365,6 @@ app.post('/buyStock', (req, res)=> {
         });
         return;
     });
-
-    /**
-    if (!(UserProfiles.canBuyStock(req.session.user, req.body.shares, req.body.costPerShare))) {
-        res.status(400).send("Not Enough Funds");
-        return;
-    }
-
-    UserProfiles.buyStock(req.session.user, req.body.stockSymbol, req.body.shares, req.body.costPerShare);
-    res.status(200).send("Successfully Bought");
-    return;
-     **/
 });
 
 app.post('/sellStock', (req, res)=> {

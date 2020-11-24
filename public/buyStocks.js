@@ -77,29 +77,5 @@ if (buyShares !== null) {
                 });
             }
         });
-        //if (numberOfShares.value > 0) {
-        /**
-            const fetchResponse = await fetch('/buyStock', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({stockSymbol: stockSymbolValue, shares: numberOfShares.value})
-            });
-         **/
-
-            /**
-            if (fetchResponse.status === 400) {
-                message.innerHTML = "Not enough funds";
-                buyStocksAlert.style.display = 'block';
-            } else if (fetchResponse.status === 200) {
-                message.innerHTML = "Successfully bought shares";
-                buyStocksAlert.style.display = 'block';
-            }
-        } else if (numberOfShares.value <= 0) {
-            message.innerHTML = "Invalid number of shares";
-            buyStocksAlert.style.display = 'block';
-        }
-             **/
     });
 }
